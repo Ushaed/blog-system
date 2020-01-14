@@ -8,7 +8,7 @@
     <link href="{{asset('assets/frontend/category-sidebar/css/responsive.css')}}" rel="stylesheet">
 
 <style>
-        
+
     .favorite_posts{
         color:green;
     }
@@ -32,15 +32,15 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="card h-100">
                             <div class="single-post post-style-1">
-        
-                                <div class="blog-image"><img src="{{Storage::disk('public')->url('post/'.$post->image)}}" alt="Blog Image"></div>
-        
-                                <a class="avatar" href="#"><img src="{{Storage::disk('public')->url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
-        
+
+                                <div class="blog-image"><img src="{{asset('uploads/post/'.$post->image)}}" alt="Blog Image"></div>
+
+                                <a class="avatar" href="#"><img src="{{asset('uploads/user/'.$post->user->image)}}" alt="Profile Image"></a>
+
                                 <div class="blog-info">
-        
+
                                     <h4 class="title"><a href="{{route('post.details',$post->slug)}}"><b>{{$post->title}}</b></a></h4>
-        
+
                                     <ul class="post-footer">
                                             <li>
                                                     @guest
@@ -51,12 +51,12 @@
                                                     @else
                                                         <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
                                                            class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
-            
+
                                                         <form id="favorite-form-{{ $post->id }}" method="POST" action="{{ route('post.favorite',$post->id) }}" style="display: none;">
                                                             @csrf
                                                         </form>
                                                     @endguest
-            
+
                                                 </li>
                                                 <li>
                                                     <a href="#"><i class="ion-chatbubble"></i>{{ $post->comments->count() }}</a>
@@ -65,7 +65,7 @@
                                                     <a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a>
                                                 </li>
                                     </ul>
-        
+
                                 </div><!-- blog-info -->
                             </div><!-- single-post -->
                         </div><!-- card -->
@@ -85,5 +85,5 @@
 @endsection
 
 @push('js')
-    
+
 @endpush
