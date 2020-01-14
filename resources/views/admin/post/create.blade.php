@@ -6,7 +6,7 @@
 
 @push('css')
     <!-- Bootstrap Select Css -->
-    <link href="{{asset('assets/backend/plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet" /> 
+    <link href="{{asset('assets/backend/plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet" />
 @endpush
 
 @section('content')
@@ -26,12 +26,12 @@
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">more_vert</i>
                                 </a>
-                            
+
                             </li>
                         </ul> --}}
                     </div>
                     <div class="body">
-                        
+
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" id="title" class="form-control" name="title" placeholder="Post title">
@@ -42,14 +42,14 @@
                                 <div class="form-line">
                                     <label for="image">Featured Image</label>
                                     <input type="file" class="form-control" name="image" >
-                                   
+
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" id="publish" class="filled-in" name="status" value="1">
                                 <label for="publish">Published</label>
                             </div>
-                           
+
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">more_vert</i>
                                 </a>
-                            
+
                             </li>
                         </ul> --}}
                     </div>
@@ -93,7 +93,7 @@
                             {{--  <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="file" class="form-control" name="image" >
-                                   
+
                                 </div>
                             </div>  --}}
                             {{--  <a href="{{route('admin.post.index')}}" class="btn btn-danger m-t-15 waves-effect">BACK</a>
@@ -110,31 +110,31 @@
                         <h2>
                             Post Description
                         </h2>
-                        
+
                     </div>
                     <div class="body">
-                        <textarea name="body" id="tinymce" ></textarea> 
+                        <textarea name="body" id="tinymce" ></textarea>
                         <a href="{{route('admin.post.index')}}" class="btn btn-danger m-t-15 waves-effect">BACK</a>
-                            <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>   
+                            <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
                     </div>
                 </div>
             </div>
         </div>
-       
+    </form>
 
     </div>
 @endsection
 
 @push('js')
     <!-- Select Plugin Js -->
-    <script src="{{asset('assets/backend/plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>  
+    <script src="{{asset('assets/backend/plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>
 
     <!-- TinyMCE -->
     <script src="{{asset('assets/backend/plugins/tinymce/tinymce.js')}}"></script>
 
     <script>
         $(function () {
-        
+
             //TinyMCE
             tinymce.init({
                 selector: "textarea#tinymce",

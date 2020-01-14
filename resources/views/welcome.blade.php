@@ -4,7 +4,7 @@
 
 
 @push('css')
-    
+
 	<link href="{{asset('assets/frontend/front-page-category/css/styles.css')}}" rel="stylesheet">
 
 	<link href="{{asset('assets/frontend/front-page-category/css/responsive.css')}}" rel="stylesheet">
@@ -25,7 +25,7 @@
                 @foreach ($categories as $category)
                 <div class="swiper-slide">
                     <a class="slider-category" href="{{route('category.post',$category->slug)}}">
-                        <div class="blog-image"><img src="{{Storage::disk('public')->url('category/slider/'.$category->image)}}" alt="Blog Image"></div>
+                        <div class="blog-image"><img src="{{Storage::disk('public')->url('category/slider/'.$category->image)}} " alt="Blog Image"></div>
 
                         <div class="category">
                             <div class="display-table center-text">
@@ -38,10 +38,10 @@
                     </a>
                 </div><!-- swiper-slide -->
 
-            
+
 
             @endforeach
-               
+
             </div><!-- swiper-wrapper -->
 
         </div><!-- swiper-container -->
@@ -58,9 +58,9 @@
                 <div class="card h-100">
                     <div class="single-post post-style-1">
 
-                        <div class="blog-image"><img src="{{Storage::disk('public')->url('post/'.$post->image)}}" alt="Blog Image"></div>
+                        <div class="blog-image"><img src="{{ asset('uploads/post/'.$post->image)}}" alt="Blog Image"></div>
 
-                        <a class="avatar" href="{{route('author.profile',$post->user->username)}}"><img src="{{Storage::disk('public')->url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
+                        <a class="avatar" href="{{route('author.profile',$post->user->username)}}"><img src="{{asset('uploads/user/'.$post->user->image)}}" alt="Profile Image"></a>
 
                         <div class="blog-info">
 
@@ -76,12 +76,12 @@
                                             @else
                                                 <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
                                                    class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
-    
+
                                                 <form id="favorite-form-{{ $post->id }}" method="POST" action="{{ route('post.favorite',$post->id) }}" style="display: none;">
                                                     @csrf
                                                 </form>
                                             @endguest
-    
+
                                         </li>
                                         <li>
                                             <a href="#"><i class="ion-chatbubble"></i>{{ $post->comments->count() }}</a>
@@ -107,6 +107,5 @@
 @endsection
 
 @push('js')
-    
+
 @endpush
-    

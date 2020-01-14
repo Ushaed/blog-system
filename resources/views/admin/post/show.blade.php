@@ -8,7 +8,6 @@
 
 @section('content')
     <div class="container-fluid">
-        <!-- Vertical Layout | With Floating Label -->
         <a href="{{ route('admin.post.index') }}" class="btn btn-danger waves-effect">BACK</a>
         @if($post->is_approved == false)
             <button type="button" class="btn btn-success waves-effect pull-right" onclick="approvePost({{ $post->id }})">
@@ -45,7 +44,7 @@
                     <div class="card">
                         <div class="header bg-cyan">
                             <h2>
-                                Categoryies
+                                Categories
                             </h2>
                         </div>
                         <div class="body">
@@ -73,7 +72,7 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <img class="img-responsive thumbnail" src="{{ Storage::disk('public')->url('post/'.$post->image) }}" alt="">
+                            <img style="height: 200px;width: 250px" class="img-responsive thumbnail" src="{{ asset('uploads/post/'.$post->image)}}" alt="{{ $post->title }}">
                         </div>
                     </div>
 

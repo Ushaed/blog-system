@@ -405,7 +405,7 @@
           that.$button
             .addClass('bs-invalid')
             .focus();
-          
+
           that.$element.on({
             'focus.bs.select': function () {
               that.$button.focus();
@@ -422,7 +422,7 @@
               that.$element.off('rendered.bs.select');
             }
           });
-          
+
         });
       }
 
@@ -514,7 +514,7 @@
           titleOption = document.createElement('option'),
           liIndex = -1; // increment liIndex whenever a new <li> element is created to ensure liObj is correct
 
-      // Helper functions
+      // Helpers functions
       /**
        * @param content
        * @param [index]
@@ -1059,12 +1059,12 @@
     },
 
     tabIndex: function () {
-      if (this.$element.data('tabindex') !== this.$element.attr('tabindex') && 
+      if (this.$element.data('tabindex') !== this.$element.attr('tabindex') &&
         (this.$element.attr('tabindex') !== -98 && this.$element.attr('tabindex') !== '-98')) {
         this.$element.data('tabindex', this.$element.attr('tabindex'));
         this.$button.attr('tabindex', this.$element.data('tabindex'));
       }
-      
+
       this.$element.attr('tabindex', -98);
     },
 
@@ -1390,7 +1390,7 @@
 
     toggle: function (e) {
       e = e || window.event;
-      
+
       if (e) e.stopPropagation();
 
       this.$button.trigger('click');

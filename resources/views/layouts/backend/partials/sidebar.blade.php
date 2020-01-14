@@ -2,7 +2,7 @@
     <!-- User Info -->
     <div class="user-info">
         <div class="image">
-            <img src="{{Storage::disk('public')->url('profile/'.Auth::user()->image)}}" width="48" height="48" alt="User" />
+            <img src="{{asset('uploads/user/'.Auth::user()->image)}}" width="48" height="48" alt="User" />
         </div>
         <div class="info-container">
             <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</div>
@@ -17,7 +17,7 @@
                         </a>
                     </li>
                     <li role="separator" class="divider"></li>
-                    
+
                     <li role="separator" class="divider"></li>
                     <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -29,7 +29,7 @@
                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                              @csrf
                          </form>
-                        
+
                     </li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
             <li class="header">MAIN NAVIGATION</li>
 
             @if(Request::is('admin*'))
-                
+
                 <li class="{{Request::is('admin/dashboard')?'active':''}}">
                     <a href="{{route('admin.dashboard')}}">
                         <i class="material-icons">home</i>
@@ -90,7 +90,7 @@
                         <span>Comments</span>
                     </a>
                 </li>
-                
+
                 <li class="{{Request::is('admin/authors')?'active':''}}">
                     <a href="{{route('admin.authors.index')}}">
                         <i class="material-icons">account_circle</i>
@@ -125,7 +125,7 @@
                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                          @csrf
                      </form>
-                    
+
                 </li>
             @endif
 
@@ -174,11 +174,11 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-                    
+
                 </li>
             @endif
 
-            
+
         </ul>
     </div>
     <!-- #Menu -->

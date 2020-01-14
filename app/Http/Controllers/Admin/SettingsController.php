@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Helpers\ImageHelper;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use App\User;
@@ -22,25 +23,18 @@ class SettingsController extends Controller
             'email' => 'required|email',
             'image' => 'image',
         ]);
-        $image = $request->file('image');
-        $slug = str_slug($request->name);
         $user = User::findOrFail(Auth::id());
-        if (isset($image))
-        {
-            $currentDate = Carbon::now()->toDateString();
-            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (!Storage::disk('public')->exists('profile'))
-            {
-             Storage::disk('public')->makeDirectory('profile');
-            }
-//            Delete old image form profile folder
-            if (Storage::disk('public')->exists('profile/'.$user->image))
-            {
-                Storage::disk('public')->delete('profile/'.$user->image);
-            }
-            $profile = Image::make($image)->resize(500,500)->stream();
-            Storage::disk('public')->put('profile/'.$imageName,$profile);
-        } else {
+        if ($request->file('image')) {
+            @unlink(public_path('uploads/user/'.$user->image));
+            $config = array(
+                'name' => "image",
+                'path' => 'uploads/user',
+                'width' => 500,
+                'height' => 500,
+            );
+            $image = ImageHelper::uploadImage($config);
+            $imageName = $image['filename'];
+        }else {
             $imageName = $user->image;
         }
         $user->name = $request->name;
@@ -69,10 +63,10 @@ class SettingsController extends Controller
                 Auth::logout();
                 return redirect()->back();
             }
-            else 
+            else
             {
                 Toastr::error('New Password & old password don,t be same','Error');
-                return redirect()->back();   
+                return redirect()->back();
             }
         }
         else
