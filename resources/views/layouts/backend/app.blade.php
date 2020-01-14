@@ -10,7 +10,7 @@
     <title>@yield('title - '){{ config('app.name', 'Laravel') }}</title>
 
     <!-- Favicon-->
-    <link rel="icon" href="{{asset('assets/backend/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('assets/backend/favicon.png')}}" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{asset('assets/backend/css/themes/all-themes.css')}}" rel="stylesheet" />
 
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="{{asset('assets/frontend/toastr/css/toastr.min.css')}}">
     @stack('css')
 
 </head>
@@ -54,7 +54,7 @@
                 </div>
                 <p>Please wait...</p>
             </div>
-        </div>
+{{--        </div>--}}
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
@@ -82,7 +82,7 @@
 
     <section class="content">
        @yield('content')
-    </section> 
+    </section>
     <!-- Jquery Core Js -->
     <script src="{{asset('assets/backend/plugins/jquery/jquery.min.js')}}"></script>
 
@@ -98,15 +98,15 @@
     <!-- Waves Effect Plugin Js -->
     <script src="{{asset('assets/backend/plugins/node-waves/waves.js')}}"></script>
 
-    
+
     <!-- Custom Js -->
     <script src="{{asset('assets/backend/js/admin.js')}}"></script>
-   
+
 
     <!-- Demo Js -->
     <script src="{{asset('assets/backend/js/demo.js')}}"></script>
 
-    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="{{asset('assets/frontend/toastr/js/toastr.min.js')}}"></script>
         {!! Toastr::message() !!}
         <script>
             @if ($errors->any())

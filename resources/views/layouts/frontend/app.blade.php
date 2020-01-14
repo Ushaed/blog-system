@@ -8,12 +8,49 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title> @yield('title -'){{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="{{asset('assets/backend/favicon.png')}}" type="image/x-icon">
+
     <link href="{{asset('assets/frontend/common-css/bootstrap.css')}}" rel="stylesheet">
 
 	<link href="{{asset('assets/frontend/common-css/swiper.css')}}" rel="stylesheet">
 
 	<link href="{{asset('assets/frontend/common-css/ionicons.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="{{asset('assets/frontend/toastr/css/toastr.min.css')}}">
+    <style>
+        footer .input-area {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            box-shadow: 0px 0px 1px #bbb;
+            background: #F5F7F6;
+        }
+        footer .input-area .email-input {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 0 70px 0 20px;
+            background: transparent;
+            border: 0;
+            outline: 0;
+        }
+        footer .input-area .submit-btn {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            background: none;
+            border: 0;
+            outline: 0;
+            margin-right: 10px;
+            opacity: .8;
+            cursor: pointer;
+            transition: all .2s;
+        }
+    </style>
     @stack('css')
 
 
@@ -37,8 +74,8 @@
 	<script src="{{asset('assets/frontend/common-js/swiper.js')}}"></script>
 
     <script src="{{asset('assets/frontend/common-js/scripts.js')}}"></script>
-    
-    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script src="{{asset('assets/frontend/toastr/js/toastr.min.js')}}"></script>
         {!! Toastr::message() !!}
 
         <script>
@@ -51,7 +88,7 @@
                     @endforeach
                 @endif
             </script>
-            
+
     @stack('js')
 </body>
 </html>
