@@ -20,13 +20,13 @@ class CommentController extends Controller
         if($comment->post->user->id == Auth::id())
         {
             $comment->delete();
-            Toastr::success('Category Deleted Successfully','Success');
+            Toastr::success('Comment Deleted Successfully','Success');
         }
-        else 
+        else
         {
             Toastr::error('Access deny','Error');
         }
-        
+
         return redirect()->back();
     }
 }

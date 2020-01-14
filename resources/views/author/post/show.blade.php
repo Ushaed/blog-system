@@ -5,7 +5,7 @@
 @endsection
 
 @push('css')
-    
+
 @endpush
 
 @section('content')
@@ -20,10 +20,10 @@
             <i class="material-icons ">done</i>
             <span>Approve</span>
        </button>
-       @else 
+       @else
        <button type="button" class="btn btn-success pull-right disabled">
             <i class="material-icons ">done</i>
-            <span>Approved<d/span>
+            <span>Approved</span>
        </button>
    @endif
    <br>
@@ -47,13 +47,13 @@
                         <h2>
                            Categories
                         </h2>
-                        
+
                     </div>
                     <div class="body">
                         @foreach ($post->categories as $category)
                         <span class="label bg-cyan">{{$category->name}}</span>
                         @endforeach
-                            
+
                     </div>
                 </div>
 
@@ -62,13 +62,13 @@
                             <h2>
                                Tags
                             </h2>
-                            
+
                         </div>
                         <div class="body">
-                           
+
                                 @foreach ($post->tags as $tag)
                                 <span class="label bg-amber">{{$tag->name}}</span>
-                                @endforeach   
+                                @endforeach
                         </div>
                     </div>
 
@@ -77,32 +77,32 @@
                                 <h2>
                                    Featured Image
                                 </h2>
-                                
+
                             </div>
                             <div class="body">
-                                
-                                <img src="{{Storage::disk('public')->url('post/'.$post->image)}}" alt="" height="320" width="320"> 
+
+                                <img src="{{asset('uploads/post/'.$post->image)}}" alt="" height="200" width="250">
                             </div>
                         </div>
             </div>
         </div>
-        
-       
-       
+
+
+
 
     </div>
 @endsection
 
 @push('js')
     <!-- Select Plugin Js -->
-    <script src="{{asset('assets/backend/plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>  
+    <script src="{{asset('assets/backend/plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>
 
     <!-- TinyMCE -->
     <script src="{{asset('assets/backend/plugins/tinymce/tinymce.js')}}"></script>
 
     <script>
         $(function () {
-        
+
             //TinyMCE
             tinymce.init({
                 selector: "textarea#tinymce",

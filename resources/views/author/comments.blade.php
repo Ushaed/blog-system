@@ -45,13 +45,13 @@
                                 <tbody>
                                     @foreach($posts as $key=>$post)
                                     @foreach ($post->comments as $comment)
-                                    
+
                                        <tr>
                                            <td>
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="">
-                                                        <img class="media-object" src="{{Storage::disk('public')->url('profile/'.$comment->user->image)}}" alt="" width="64" height="64">
+                                                        <img class="media-object" src="{{ asset('uploads/user/'.$comment->user->image)}}" alt="" width="64" height="64">
                                                     </a>
                                                 </div>
                                                 <div class="media-body">
@@ -68,7 +68,7 @@
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="">
-                                                        <img class="media-object" src="{{Storage::disk('public')->url('post/'.$comment->post->image)}}" alt="" width="64" height="64">
+                                                        <img class="media-object" src="{{ asset('uploads/post/'.$comment->post->image)}}" alt="" width="64" height="64">
                                                     </a>
                                                 </div>
                                                 <div class="media-body">
@@ -90,7 +90,7 @@
                                                     </form>
                                            </td>
                                        </tr>
-                                           
+
                                     @endforeach
                                     @endforeach
                                 </tbody>

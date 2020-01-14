@@ -117,7 +117,7 @@ class PostController extends Controller
             $image = ImageHelper::uploadImage($config);
             $imageName = $image['filename'];
         }else {
-            $imageName   =$post->image;
+            $imageName = $post->image;
         }
         $post->user_id = Auth::id();
         $post->title = $request->title;
@@ -145,17 +145,17 @@ class PostController extends Controller
     }
     public function approval($id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         if ($post->is_approved == false)
         {
             $post->is_approved = true;
             $post->save();
-            $post->user->notify(new AdminPostApproval($post));
-            $subscribers = Subscriber::all();
-            foreach ($subscribers as $subscriber) {
-            Notification::route('mail',$subscriber->email)
-            ->notify(new NewPostNotify($post));
-            }
+//            $post->user->notify(new AdminPostApproval($post));
+//            $subscribers = Subscriber::all();
+//            foreach ($subscribers as $subscriber) {
+//            Notification::route('mail',$subscriber->email)
+//            ->notify(new NewPostNotify($post));
+//            }
             Toastr::success('Post Successfully Approved :)','Success');
         } else {
             Toastr::info('This Post is already approved','Info');

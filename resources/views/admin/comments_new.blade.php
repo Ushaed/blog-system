@@ -22,7 +22,7 @@
                     <div class="header">
                         <h2>
                             ALL Comment
-                            <span class="badge bg-blue">{{ $comments->count() }}</span>
+                            <span class="badge bg-blue"></span>
                         </h2>
                     </div>
                     <div class="body">
@@ -43,52 +43,56 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                    @foreach($comments as $key=>$comment)
-                                       <tr>
-                                           <td>
-                                            <div class="media">
-                                                <div class="media-left">
-                                                    <a href="">
-                                                        <img class="media-object" src="{{ asset('uploads/user/'.$comment->user->image)}}" alt="" width="64" height="64">
-                                                    </a>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">{{$comment->user->name}}
-                                                        <small>{{$comment->created_at->diffForHumans()}}</small>
-                                                    </h4>
-                                                    <p>{{$comment->comment}}</p>
-{{--                                                    <a target="_blank" href="{{route('post.details',$comment->post->slug.'#comments')}}">Reply</a>--}}
-                                                </div>
-                                            </div>
-                                           </td>
+                                @foreach($posts as $key=>$post)
+                                    @foreach ($post->comments as $comment)
 
-                                           <td>
-                                            <div class="media">
-                                                <div class="media-left">
-                                                    <a href="">
-                                                        <img class="media-object" src="{{ asset('uploads/post/'.$comment->post->image)}}" alt="" width="64" height="64">
-                                                    </a>
+                                        <tr>
+                                            <td>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="">
+                                                            <img class="media-object" src="{{ asset('uploads/user/'.$comment->user->image)}}" alt="" width="64" height="64">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">{{$comment->user->name}}
+                                                            <small>{{$comment->created_at->diffForHumans()}}</small>
+                                                        </h4>
+                                                        <p>{{$comment->comment}}</p>
+                                                        <a target="_blank" href="{{route('post.details',$comment->post->slug.'#comments')}}">Reply</a>
+                                                    </div>
                                                 </div>
-                                                <div class="media-body">
-{{--                                                        <a target="_blank" href="{{route('post.details',$comment->post->slug)}}">--}}
-{{--                                                                Reply--}}
-{{--                                                            </a>--}}
-                                                    <h4 class="media-heading">{{str_limit($comment->post->title,'40')}}</h4>
-                                                    <p>{{$comment->post->user->name}}</p>
+                                            </td>
+
+                                            <td>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="">
+                                                            <img class="media-object" src="{{ asset('uploads/post/'.$comment->post->image)}}" alt="" width="64" height="64">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <a target="_blank" href="{{route('post.details',$comment->post->slug)}}">
+                                                            Reply
+                                                        </a>
+                                                        <h4 class="media-heading">{{str_limit($comment->post->title,'40')}}</h4>
+                                                        <p>{{$comment->post->user->name}}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                           </td>
-                                           <td>
+                                            </td>
+                                            <td>
                                                 <button class="btn btn-danger waves-effect" type="button" onclick="deleteComment({{ $comment->id }})">
-                                                        <i class="material-icons">delete</i>
-                                                    </button>
-                                                    <form id="delete-form-{{ $comment->id }}" action="{{ route('admin.comment.destroy',$comment->id) }}" method="POST" style="display: none;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                    </form>
-                                           </td>
-                                       </tr>
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+                                                <form id="delete-form-{{ $comment->id }}" action="{{ route('admin.comment.destroy',$comment->id) }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            </td>
+                                        </tr>
+
                                     @endforeach
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

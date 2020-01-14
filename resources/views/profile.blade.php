@@ -9,7 +9,7 @@
 
 
 <style>
-        
+
     .favorite_posts{
         color:green;
     }
@@ -34,9 +34,9 @@
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="{{Storage::disk('public')->url('post/'.$post->image)}}" alt="Blog Image"></div>
+                            <div class="blog-image"><img src="{{asset('uploads/post/'.$post->image)}}" alt="Blog Image"></div>
 
-                            <a class="avatar" href="{{route('author.profile',$post->user->username)}}"><img src="{{Storage::disk('public')->url('profile/'.$post->user->image)}}" alt="Profile Image"></a>
+                            <a class="avatar" href="{{route('author.profile',$post->user->username)}}"><img src="{{asset('uploads/user/'.$post->user->image)}}" alt="Profile Image"></a>
 
                             <div class="blog-info">
 
@@ -71,20 +71,20 @@
                         </div><!-- single-post -->
                     </div><!-- card -->
                     </div><!-- col-lg-4 col-md-6 -->
-                @endforeach 
+                @endforeach
 
                 @else
                 <div class="col-lg-12 col-md-12">
                         <div class="card h-100">
                             <div class="single-post post-style-1">
-  
+
                               <h4 class="title">No post found</h4>
-        
-                               
+
+
                         </div><!-- card -->
                     </div><!-- col-lg-4 col-md-6 -->
             @endif
-                   
+
 
                 </div><!-- row -->
 
@@ -108,10 +108,11 @@
         </div><!-- row -->
 
     </div><!-- container -->
+    </div>
 </section><!-- section -->
 
 @endsection
 
 @push('js')
-    
+
 @endpush
