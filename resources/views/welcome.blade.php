@@ -5,9 +5,9 @@
 
 @push('css')
 
-	<link href="{{asset('assets/frontend/front-page-category/css/styles.css')}}" rel="stylesheet">
+	<link href="{{asset('public/assets/frontend/front-page-category/css/styles.css')}}" rel="stylesheet">
 
-	<link href="{{asset('assets/frontend/front-page-category/css/responsive.css')}}" rel="stylesheet">
+	<link href="{{asset('public/assets/frontend/front-page-category/css/responsive.css')}}" rel="stylesheet">
     <style>
         .favorite_posts{
             color:red;
@@ -25,7 +25,7 @@
                 @foreach ($categories as $category)
                 <div class="swiper-slide mr-1" style="height: 150px;">
                     <a class="slider-category" href="{{route('category.post',$category->slug)}}">
-                        <div class="blog-image"><img src="{{asset('uploads/category/'.$category->image)}} " alt="Blog Image" style="height: 150px"></div>
+                        <div class="blog-image"><img src="{{asset('public/uploads/category/'.$category->image)}} " alt="Blog Image" style="height: 150px"></div>
 
                         <div class="category">
                             <div class="display-table center-text">
@@ -58,9 +58,9 @@
                 <div class="card h-100">
                     <div class="single-post post-style-1">
 
-                        <div class="blog-image"><img src="{{ asset('uploads/post/'.$post->image)}}" alt="Blog Image"></div>
+                        <div class="blog-image"><img src="{{ asset('public/uploads/post/'.$post->image)}}" alt="Blog Image"></div>
 
-                        <a class="avatar" href="{{route('author.profile',$post->user->username)}}"><img src="{{asset('uploads/user/'.$post->user->image)}}" alt="Profile Image"></a>
+                        <a class="avatar" href="{{route('author.profile',$post->user->username)}}"><img src="{{asset('public/uploads/user/'.$post->user->image)}}" alt="Profile Image"></a>
 
                         <div class="blog-info">
 

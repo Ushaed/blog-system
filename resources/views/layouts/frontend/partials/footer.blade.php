@@ -10,7 +10,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="footer-section">
 
-                    <a class="logo" href="{{ route('home') }}"><img src="{{asset('assets/frontend/logo/logo.png')}}" alt="Logo Image"></a>
+                    <a class="logo" href="{{ route('home') }}"><img src="{{asset('public/assets/frontend/logo/logo.png')}}" alt="Logo Image"></a>
                     <p class="copyright">Ushaed Ltd @ 2019. All rights reserved.</p>
                     <p class="copyright">Designed by <a href="#">Colorlib</a></p>
 {{--                    <ul class="icons">--}}

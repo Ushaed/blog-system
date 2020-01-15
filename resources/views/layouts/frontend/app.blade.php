@@ -8,14 +8,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title> @yield('title -'){{ config('app.name', 'Laravel') }}</title>
-    <link rel="shortcut icon" href="{{asset('assets/backend/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('public/assets/backend/favicon.png')}}" type="image/x-icon">
 
-    <link href="{{asset('assets/frontend/common-css/bootstrap.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/frontend/common-css/bootstrap.css')}}" rel="stylesheet">
 
-	<link href="{{asset('assets/frontend/common-css/swiper.css')}}" rel="stylesheet">
+	<link href="{{asset('public/assets/frontend/common-css/swiper.css')}}" rel="stylesheet">
 
-	<link href="{{asset('assets/frontend/common-css/ionicons.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('assets/frontend/toastr/css/toastr.min.css')}}">
+	<link href="{{asset('public/assets/frontend/common-css/ionicons.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('public/assets/frontend/toastr/css/toastr.min.css')}}">
     <style>
         footer .input-area {
             position: relative;
@@ -65,17 +65,17 @@
 
 
 
-    <script src="{{asset('assets/frontend/common-js/jquery-3.1.1.min.js')}}"></script>
+    <script src="{{asset('public/assets/frontend/common-js/jquery-3.1.1.min.js')}}"></script>
 
-	<script src="{{asset('assets/frontend/common-js/tether.min.js')}}"></script>
+	<script src="{{asset('public/assets/frontend/common-js/tether.min.js')}}"></script>
 
-	<script src="{{asset('assets/frontend/common-js/bootstrap.js')}}"></script>
+	<script src="{{asset('public/assets/frontend/common-js/bootstrap.js')}}"></script>
 
-	<script src="{{asset('assets/frontend/common-js/swiper.js')}}"></script>
+	<script src="{{asset('public/assets/frontend/common-js/swiper.js')}}"></script>
 
-    <script src="{{asset('assets/frontend/common-js/scripts.js')}}"></script>
+    <script src="{{asset('public/assets/frontend/common-js/scripts.js')}}"></script>
 
-    <script src="{{asset('assets/frontend/toastr/js/toastr.min.js')}}"></script>
+    <script src="{{asset('public/assets/frontend/toastr/js/toastr.min.js')}}"></script>
         {!! Toastr::message() !!}
 
         <script>
