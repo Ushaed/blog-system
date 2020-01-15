@@ -18,14 +18,14 @@
 @section('content')
     <div class="main-slider">
         <div class="swiper-container position-static" data-slide-effect="slide" data-autoheight="false"
-            data-swiper-speed="500" data-swiper-autoplay="10000" data-swiper-margin="0" data-swiper-slides-per-view="4"
+            data-swiper-speed="500" data-swiper-autoplay="2000" data-swiper-margin="0" data-swiper-slides-per-view="4"
             data-swiper-breakpoints="true" data-swiper-loop="true" >
             <div class="swiper-wrapper">
 
                 @foreach ($categories as $category)
-                <div class="swiper-slide">
+                <div class="swiper-slide mr-1" style="height: 150px;">
                     <a class="slider-category" href="{{route('category.post',$category->slug)}}">
-                        <div class="blog-image"><img src="{{asset('uploads/category/'.$category->image)}} " alt="Blog Image"></div>
+                        <div class="blog-image"><img src="{{asset('uploads/category/'.$category->image)}} " alt="Blog Image" style="height: 150px"></div>
 
                         <div class="category">
                             <div class="display-table center-text">
@@ -100,7 +100,7 @@
 
             </div><!-- row -->
 
-            <a class="load-more-btn" href="#"><b>LOAD MORE</b></a>
+            <a class="load-more-btn" href="{{ route('post.index')}}"><b>LOAD MORE</b></a>
 
         </div><!-- container -->
     </section><!-- section -->

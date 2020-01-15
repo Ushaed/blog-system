@@ -9,10 +9,12 @@
 
 <style>
         .slider {
-            height: 400px;
+            height: 200px;
             width: 100%;
             background-image: url({{asset('uploads/category/'.$category->image)}});
-            background-size: cover;
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; /* Resize the background image to cover the entire container */
         }
     .favorite_posts{
         color:green;

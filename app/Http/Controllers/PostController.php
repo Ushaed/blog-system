@@ -30,5 +30,4 @@ class PostController extends Controller
     {
          $category = Category::where('slug',$slug)->first();
          return view('category',compact('category'));
-    }
-}
+    }}
