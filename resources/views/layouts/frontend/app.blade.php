@@ -7,14 +7,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> @yield('title -'){{ config('app.name', 'Laravel') }}</title>
+    <title> @yield('title') - {{ config('app.name', 'Laravel') }}</title>
     <link rel="shortcut icon" href="{{asset('public/assets/backend/favicon.png')}}" type="image/x-icon">
 
     <link href="{{asset('public/assets/frontend/common-css/bootstrap.css')}}" rel="stylesheet">
 
-	<link href="{{asset('public/assets/frontend/common-css/swiper.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/frontend/common-css/swiper.css')}}" rel="stylesheet">
 
-	<link href="{{asset('public/assets/frontend/common-css/ionicons.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/frontend/common-css/ionicons.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('public/assets/frontend/toastr/css/toastr.min.css')}}">
     <style>
         footer .input-area {
@@ -24,6 +24,7 @@
             box-shadow: 0px 0px 1px #bbb;
             background: #F5F7F6;
         }
+
         footer .input-area .email-input {
             position: absolute;
             top: 0;
@@ -36,6 +37,7 @@
             border: 0;
             outline: 0;
         }
+
         footer .input-area .submit-btn {
             position: absolute;
             top: 0;
@@ -56,39 +58,38 @@
 
 </head>
 <body>
-   @include('layouts.frontend.partials.header')
+@include('layouts.frontend.partials.header')
 
-	@yield('content')
-
-
-    @include('layouts.frontend.partials.footer')
+@yield('content')
 
 
+@include('layouts.frontend.partials.footer')
 
-    <script src="{{asset('public/assets/frontend/common-js/jquery-3.1.1.min.js')}}"></script>
 
-	<script src="{{asset('public/assets/frontend/common-js/tether.min.js')}}"></script>
+<script src="{{asset('public/assets/frontend/common-js/jquery-3.1.1.min.js')}}"></script>
 
-	<script src="{{asset('public/assets/frontend/common-js/bootstrap.js')}}"></script>
+<script src="{{asset('public/assets/frontend/common-js/tether.min.js')}}"></script>
 
-	<script src="{{asset('public/assets/frontend/common-js/swiper.js')}}"></script>
+<script src="{{asset('public/assets/frontend/common-js/bootstrap.js')}}"></script>
 
-    <script src="{{asset('public/assets/frontend/common-js/scripts.js')}}"></script>
+<script src="{{asset('public/assets/frontend/common-js/swiper.js')}}"></script>
 
-    <script src="{{asset('public/assets/frontend/toastr/js/toastr.min.js')}}"></script>
-        {!! Toastr::message() !!}
+<script src="{{asset('public/assets/frontend/common-js/scripts.js')}}"></script>
 
-        <script>
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        toastr.error('{{$error}}','Error',{
-                            closeButton:true,
-                            progressBar:true,
-                        });
-                    @endforeach
-                @endif
-            </script>
+<script src="{{asset('public/assets/frontend/toastr/js/toastr.min.js')}}"></script>
+{!! Toastr::message() !!}
 
-    @stack('js')
+<script>
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+    toastr.error('{{$error}}', 'Error', {
+        closeButton: true,
+        progressBar: true,
+    });
+    @endforeach
+    @endif
+</script>
+
+@stack('js')
 </body>
 </html>

@@ -1,16 +1,18 @@
 @extends('layouts.frontend.app')
 
-@section('title','single post')
+@section('title')
+{{$post->title}}
+@endsection
 
 @push('css')
-    <link href="{{asset('assets/frontend/single-post-1/css/styles.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/frontend/single-post-1/css/styles.css')}}" rel="stylesheet">
 
-    <link href="{{asset('assets/frontend/single-post-1/css/responsive.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/frontend/single-post-1/css/responsive.css')}}" rel="stylesheet">
     <style>
         .header-bg {
-            height: 400px;
+            height: 200px;
             width: 100%;
-            background-image: url({{asset('uploads/post/'.$post->image)}});
+            background-image: url({{asset('public/uploads/post/'.$post->image)}});
             background-size: cover;
         }
 
@@ -39,12 +41,12 @@
                             <div class="post-info">
 
                                 <div class="left-area">
-                                    <a class="avatar" href="#"><img src="{{asset('uploads/user/'.$post->user->image)}}"
+                                    <a class="avatar" href="#"><img src="{{asset('public/uploads/user/'.$post->user->image)}}"
                                                                     alt="Profile Image"></a>
                                 </div>
 
                                 <div class="middle-area">
-                                    <a class="name" href="#"><b>{{$post->user->name}}</b></a>
+                                    <a class="name" href="{{ route('author.profile',$post->user->username) }}"><b>{{$post->user->name}}</b></a>
                                     <h6 class="date">on {{$post->created_at->diffForHumans()}}</h6>
                                 </div>
 
@@ -156,11 +158,11 @@
                         <div class="card h-100">
                             <div class="single-post post-style-1">
 
-                                <div class="blog-image"><img src="{{asset('uploads/post/'.$randomPost->image)}}"
+                                <div class="blog-image"><img src="{{asset('public/uploads/post/'.$randomPost->image)}}"
                                                              alt="Blog Image"></div>
 
                                 <a class="avatar" href="#"><img
-                                        src="{{asset('uploads/user/'.$randomPost->user->image)}}"
+                                        src="{{asset('public/uploads/user/'.$randomPost->user->image)}}"
                                         alt="Profile Image"></a>
 
                                 <div class="blog-info">
@@ -255,7 +257,7 @@
 
                                         <div class="left-area">
                                             <a class="avatar" href="#"><img
-                                                    src="{{asset('uploads/user/'.$comment->user->image)}}"
+                                                    src="{{asset('public/uploads/user/'.$comment->user->image)}}"
                                                     alt="Profile Image"></a>
                                         </div>
 

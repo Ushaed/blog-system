@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-    Post Create
+    {{ $post->title }}
 @endsection
 
 @push('css')
@@ -9,32 +9,33 @@
 @endpush
 
 @section('content')
-<div class="container-fluid">
-   <p style="background:cyan; padding:4px;">
-       <i class="material-icons">library_books</i>
-       <span>Posts</span>
-   </p>
-   <a href="{{route('author.post.index')}}" class="btn btn-danger waves-effect">Back</a>
-   @if ($post->is_approved == false)
-       <button type="button" class="btn btn-success pull-right ">
-            <i class="material-icons ">done</i>
-            <span>Approve</span>
-       </button>
-       @else
-       <button type="button" class="btn btn-success pull-right disabled">
-            <i class="material-icons ">done</i>
-            <span>Approved</span>
-       </button>
-   @endif
-   <br>
-   <br>
+    <div class="container-fluid">
+        <p style="background:cyan; padding:4px;">
+            <i class="material-icons">library_books</i>
+            <span>Posts</span>
+        </p>
+        <a href="{{route('author.post.index')}}" class="btn btn-danger waves-effect">Back</a>
+        @if ($post->is_approved == false)
+            <button type="button" class="btn btn-success pull-right ">
+                <i class="material-icons ">done</i>
+                <span>Approve</span>
+            </button>
+        @else
+            <button type="button" class="btn btn-success pull-right disabled">
+                <i class="material-icons ">done</i>
+                <span>Approved</span>
+            </button>
+        @endif
+        <br>
+        <br>
         <!-- Vertical Layout | With Floating Label -->
         <div class="row clearfix">
             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                       <h2><strong>{{$post->title}}</strong></h2>
-                       <p>posted by <a href="">{{$post->user->name}}</a> on {{$post->created_at->toFormattedDateString()}}</p>
+                        <h2><strong>{{$post->title}}</strong></h2>
+                        <p>posted by <a href="">{{$post->user->name}}</a>
+                            on {{$post->created_at->toFormattedDateString()}}</p>
                     </div>
                     <div class="body">
                         {!!$post->body!!}
@@ -45,49 +46,47 @@
                 <div class="card">
                     <div class="header bg-cyan">
                         <h2>
-                           Categories
+                            Categories
                         </h2>
 
                     </div>
                     <div class="body">
                         @foreach ($post->categories as $category)
-                        <span class="label bg-cyan">{{$category->name}}</span>
+                            <span class="label bg-cyan">{{$category->name}}</span>
                         @endforeach
 
                     </div>
                 </div>
 
                 <div class="card">
-                        <div class="header bg-green">
-                            <h2>
-                               Tags
-                            </h2>
+                    <div class="header bg-green">
+                        <h2>
+                            Tags
+                        </h2>
 
-                        </div>
-                        <div class="body">
-
-                                @foreach ($post->tags as $tag)
-                                <span class="label bg-amber">{{$tag->name}}</span>
-                                @endforeach
-                        </div>
                     </div>
+                    <div class="body">
 
-                    <div class="card">
-                            <div class="header bg-amber">
-                                <h2>
-                                   Featured Image
-                                </h2>
+                        @foreach ($post->tags as $tag)
+                            <span class="label bg-amber">{{$tag->name}}</span>
+                        @endforeach
+                    </div>
+                </div>
 
-                            </div>
-                            <div class="body">
+                <div class="card">
+                    <div class="header bg-amber">
+                        <h2>
+                            Featured Image
+                        </h2>
 
-                                <img src="{{asset('uploads/post/'.$post->image)}}" alt="" height="200" width="250">
-                            </div>
-                        </div>
+                    </div>
+                    <div class="body">
+
+                        <img src="{{asset('public/uploads/post/'.$post->image)}}" alt="" height="200" width="250">
+                    </div>
+                </div>
             </div>
         </div>
-
-
 
 
     </div>
@@ -95,10 +94,10 @@
 
 @push('js')
     <!-- Select Plugin Js -->
-    <script src="{{asset('assets/backend/plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>
+    <script src="{{asset('public/assets/backend/plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>
 
     <!-- TinyMCE -->
-    <script src="{{asset('assets/backend/plugins/tinymce/tinymce.js')}}"></script>
+    <script src="{{asset('public/assets/backend/plugins/tinymce/tinymce.js')}}"></script>
 
     <script>
         $(function () {
@@ -119,7 +118,7 @@
                 image_advtab: true
             });
             tinymce.suffix = ".min";
-            tinyMCE.baseURL = '{{asset('assets/backend/plugins/tinymce')}}';
+            tinyMCE.baseURL = '{{asset('public/assets/backend/plugins/tinymce')}}';
         });
     </script>
 @endpush

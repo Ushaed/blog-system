@@ -11,8 +11,8 @@ Auth::routes();
 Route::post('/subscriber','SubscriberController@store')->name('subscriber.store');
 Route::get('/search','SearchController@search')->name('search');
 Route::get('post/{slug}','PostController@details')->name('post.details');
-Route::get('posts','PostController@index')->name('post.index');
-Route::get('category/{slug}','PostController@postsByCategory')->name('category.post');
+Route::get('/posts','PostController@index')->name('post.index');
+Route::get('/category/{slug}','PostController@postsByCategory')->name('category.post');
 
 
 Route::get('profile/{username}','AuthorController@profile')->name('author.profile');

@@ -2,10 +2,11 @@
     <!-- User Info -->
     <div class="user-info">
         <div class="image">
-            <img src="{{asset('uploads/user/'.Auth::user()->image)}}" width="48" height="48" alt="User" />
+            <img src="{{asset('public/uploads/user/'.Auth::user()->image)}}" width="48" height="48" alt="User"/>
         </div>
         <div class="info-container">
-            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</div>
+            <div class="name" data-toggle="dropdown" aria-haspopup="true"
+                 aria-expanded="false">{{Auth::user()->name}}</div>
             <div class="email">{{Auth::user()->email}}</div>
             <div class="btn-group user-helper-dropdown">
                 <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -20,15 +21,15 @@
 
                     <li role="separator" class="divider"></li>
                     <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
                                           document.getElementById('logout-form').submit();">
-                                          <i class="material-icons">input</i>Sign Out
-                         </a>
+                            <i class="material-icons">input</i>Sign Out
+                        </a>
 
-                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                             @csrf
-                         </form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
 
                     </li>
                 </ul>
@@ -114,17 +115,17 @@
                     </a>
                 </li>
 
-                <li >
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                <li>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
-                                      <i class="material-icons">input</i>
-                                      <span>LogOut</span>
-                     </a>
+                        <i class="material-icons">input</i>
+                        <span>LogOut</span>
+                    </a>
 
-                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                         @csrf
-                     </form>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
 
                 </li>
             @endif
@@ -163,12 +164,12 @@
                     </a>
                 </li>
 
-                <li >
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                <li>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    <i class="material-icons">input</i>
-                                    <span>LogOut</span>
+                        <i class="material-icons">input</i>
+                        <span>LogOut</span>
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -1,16 +1,18 @@
 @extends('layouts.frontend.app')
 
 @section('title')
+    Index
+@endsection
 
 
 @push('css')
 
-	<link href="{{asset('public/assets/frontend/front-page-category/css/styles.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/frontend/front-page-category/css/styles.css')}}" rel="stylesheet">
 
-	<link href="{{asset('public/assets/frontend/front-page-category/css/responsive.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/frontend/front-page-category/css/responsive.css')}}" rel="stylesheet">
     <style>
-        .favorite_posts{
-            color:red;
+        .favorite_posts {
+            color: red;
         }
     </style>
 @endpush
@@ -18,29 +20,30 @@
 @section('content')
     <div class="main-slider">
         <div class="swiper-container position-static" data-slide-effect="slide" data-autoheight="false"
-            data-swiper-speed="500" data-swiper-autoplay="2000" data-swiper-margin="0" data-swiper-slides-per-view="4"
-            data-swiper-breakpoints="true" data-swiper-loop="true" >
+             data-swiper-speed="500" data-swiper-autoplay="2000" data-swiper-margin="0" data-swiper-slides-per-view="4"
+             data-swiper-breakpoints="true" data-swiper-loop="true">
             <div class="swiper-wrapper">
 
                 @foreach ($categories as $category)
-                <div class="swiper-slide mr-1" style="height: 150px;">
-                    <a class="slider-category" href="{{route('category.post',$category->slug)}}">
-                        <div class="blog-image"><img src="{{asset('public/uploads/category/'.$category->image)}} " alt="Blog Image" style="height: 150px"></div>
+                    <div class="swiper-slide mr-1" style="height: 150px;">
+                        <a class="slider-category" href="{{route('category.post',$category->slug)}}">
+                            <div class="blog-image"><img src="{{asset('public/uploads/category/'.$category->image)}} "
+                                                         alt="Blog Image" style="height: 150px"></div>
 
-                        <div class="category">
-                            <div class="display-table center-text">
-                                <div class="display-table-cell">
-                                    <h3><b>{{$category->name}}</b></h3>
+                            <div class="category">
+                                <div class="display-table center-text">
+                                    <div class="display-table-cell">
+                                        <h3><b>{{$category->name}}</b></h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </a>
-                </div><!-- swiper-slide -->
-
+                        </a>
+                    </div><!-- swiper-slide -->
 
 
-            @endforeach
+
+                @endforeach
 
             </div><!-- swiper-wrapper -->
 
@@ -53,31 +56,40 @@
 
             <div class="row">
 
-               @foreach ($posts as $post)
-               <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <div class="single-post post-style-1">
+                @foreach ($posts as $post)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100">
+                            <div class="single-post post-style-1">
 
-                        <div class="blog-image"><img src="{{ asset('public/uploads/post/'.$post->image)}}" alt="Blog Image"></div>
+                                <div class="blog-image"><img src="{{ asset('public/uploads/post/'.$post->image)}}"
+                                                             alt="Blog Image"></div>
 
-                        <a class="avatar" href="{{route('author.profile',$post->user->username)}}"><img src="{{asset('public/uploads/user/'.$post->user->image)}}" alt="Profile Image"></a>
+                                <a class="avatar" href="{{route('author.profile',$post->user->username)}}"><img
+                                        src="{{asset('public/uploads/user/'.$post->user->image)}}" alt="Profile Image"></a>
 
-                        <div class="blog-info">
+                                <div class="blog-info">
 
-                            <h4 class="title"><a href="{{route('post.details',$post->slug)}}"><b>{{$post->title}}</b></a></h4>
+                                    <h4 class="title"><a
+                                            href="{{route('post.details',$post->slug)}}"><b>{{$post->title}}</b></a>
+                                    </h4>
 
-                            <ul class="post-footer">
-                                    <li>
+                                    <ul class="post-footer">
+                                        <li>
                                             @guest
                                                 <a href="javascript:void(0);" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
                                                     closeButton: true,
                                                     progressBar: true,
                                                 })"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
                                             @else
-                                                <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
-                                                   class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
+                                                <a href="javascript:void(0);"
+                                                   onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
+                                                   class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i
+                                                        class="ion-heart"></i>{{ $post->favorite_to_users->count() }}
+                                                </a>
 
-                                                <form id="favorite-form-{{ $post->id }}" method="POST" action="{{ route('post.favorite',$post->id) }}" style="display: none;">
+                                                <form id="favorite-form-{{ $post->id }}" method="POST"
+                                                      action="{{ route('post.favorite',$post->id) }}"
+                                                      style="display: none;">
                                                     @csrf
                                                 </form>
                                             @endguest
@@ -89,13 +101,13 @@
                                         <li>
                                             <a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a>
                                         </li>
-                            </ul>
+                                    </ul>
 
-                        </div><!-- blog-info -->
-                    </div><!-- single-post -->
-                </div><!-- card -->
-            </div><!-- col-lg-4 col-md-6 -->
-               @endforeach
+                                </div><!-- blog-info -->
+                            </div><!-- single-post -->
+                        </div><!-- card -->
+                    </div><!-- col-lg-4 col-md-6 -->
+                @endforeach
 
 
             </div><!-- row -->

@@ -7,9 +7,9 @@
 @endsection
 
 @push('css')
-    <link href="{{asset('assets/frontend/category-sidebar/css/styles.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/frontend/category-sidebar/css/styles.css')}}" rel="stylesheet">
 
-    <link href="{{asset('assets/frontend/category-sidebar/css/responsive.css')}}" rel="stylesheet">
+    <link href="{{asset('public/assets/frontend/category-sidebar/css/responsive.css')}}" rel="stylesheet">
 
     <style>
         .favorite_posts {
@@ -19,8 +19,8 @@
 @endpush
 
 @section('content')
-    <div class="slider display-table center-text">
-        <h1 class="title display-table-cell"><b>{{$posts->count()}} Result For {{$query}}</b></h1>
+    <div class="slider display-table center-text" style="height: 100px">
+        <h3 class="title display-table-cell"><b>{{$posts->count()}} Result For {{$query}}</b></h3>
     </div><!-- slider -->
 
 
@@ -38,8 +38,9 @@
                                     <div class="card h-100">
                                         <div class="single-post post-style-1">
 
-                                            <div class="blog-image"><img src="{{asset('uploads/post/'.$post->image)}}"
-                                                                         alt="Blog Image"></div>
+                                            <div class="blog-image"><img
+                                                    src="{{asset('public/uploads/post/'.$post->image)}}"
+                                                    alt="Blog Image"></div>
 
                                             <a class="avatar" href="#"><img
                                                     src="{{asset('uploads/user/'.$post->user->image)}}"
