@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
-use App\post;
+use App\Post;
 class HomeController extends Controller
 {
     public function index()

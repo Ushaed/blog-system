@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Author;
 use App\Category;
 use App\Helpers\ImageHelper;
 use App\Tag;
-use App\post;
+use App\Post;
 use App\User;
 use App\Notifications\NewAuthorPost;
 Use Carbon\Carbon;

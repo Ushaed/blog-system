@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Post;
-Use App\Tag;
 use Session;
 use App\Category;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {

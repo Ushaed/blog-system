@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Helpers\ImageHelper;
 use App\Tag;
-use App\post;
+use App\Post;
 Use Carbon\Carbon;
 use App\Subscriber;
 use App\Notifications\AdminPostApproval;
